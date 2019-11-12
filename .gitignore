@@ -47,5 +47,3 @@ target
 .idea
 build
 classes
-
-**/application.properties
