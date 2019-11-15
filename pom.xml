@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- POM Relationships -->
+
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.ensat</groupId>
     <artifactId>spring-boot-web</artifactId>
     <version>0.0.2-SNAPSHOT</version>
@@ -42,8 +46,11 @@
         </dependency>
     </dependencies>
 
-    <packaging>jar</packaging>
+    <!-- /////////////////// -->
 
+    <!-- Build Settings -->
+
+    <packaging>jar</packaging>
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
@@ -96,8 +103,16 @@
         </plugins>
     </build>
 
+    <!-- /////////////////// -->
+
+    <!-- Project information -->
+
     <name>Spring Boot Web Application</name>
     <description>Spring Boot Web Application</description>
+
+    <!-- /////////////////// -->
+
+    <!-- Build Environment » Environment Information -->
 
     <properties>
         <java.version>11</java.version>
@@ -105,5 +120,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <!-- /////////////////// -->
 
 </project>
