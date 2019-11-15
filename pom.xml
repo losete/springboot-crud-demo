@@ -5,10 +5,6 @@
     <groupId>com.ensat</groupId>
     <artifactId>spring-boot-web</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
-    <name>Spring Boot Web Application</name>
-    <description>Spring Boot Web Application</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -17,14 +13,12 @@
         <relativePath/>
     </parent>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-    </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.4.0-b180830.0359</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -46,12 +40,9 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.4.0-b180830.0359</version>
-        </dependency>
     </dependencies>
+
+    <packaging>jar</packaging>
 
     <build>
         <defaultGoal>install</defaultGoal>
@@ -80,7 +71,39 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.github.ekryd.sortpom</groupId>
+                <artifactId>sortpom-maven-plugin</artifactId>
+                <version>2.8.0</version>
+                <configuration>
+                    <sortOrderFile>src/main/config/pom_stylesheet.xml</sortOrderFile>
+                    <lineSeparator>\n</lineSeparator>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <sortProperties>true</sortProperties>
+                    <keepBlankLines>true</keepBlankLines>
+                    <sortDependencies>scope</sortDependencies>
+                    <verifyFail>stop</verifyFail>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <name>Spring Boot Web Application</name>
+    <description>Spring Boot Web Application</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
 </project>
