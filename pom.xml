@@ -80,6 +80,32 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>3.1.12</version>
+                <executions>
+                    <execution>
+                        <id>quality-metric-spotbugs</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludeFilterFile>src/main/config/spotbugs-exclude-filter.xml</excludeFilterFile>
+                    <effort>Max</effort>
+                    <failOnError>true</failOnError>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.h3xstream.findsecbugs</groupId>
+                            <artifactId>findsecbugs-plugin</artifactId>
+                            <version>LATEST</version>
+                        </plugin>
+                    </plugins>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
